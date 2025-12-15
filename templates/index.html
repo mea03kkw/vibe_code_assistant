@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibe Code Assistant - Project Builder</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+</head>
+<body>
+    <div class="container py-3">
+        <!-- Header -->
+        <div class="text-center mb-4">
+            <h1 class="app-title mb-3">
+                <i class="bi bi-code-slash"></i> Vibe Code Assistant
+            </h1>
+            <p class="app-subtitle">Create your perfect development project plan with custom tech stack, timeline, and features.</p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Left Column: Project Configuration -->
+            <div class="col-12 col-lg-8">
+                <!-- Project Brief Section -->
+                <div class="custom-card">
+                    <div class="custom-card-header">
+                        <h4 class="mb-0">
+                            <i class="bi bi-pencil-square me-2"></i>Project Brief & Details
+                        </h4>
+                    </div>
+                    <div class="custom-card-body">
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <label for="projectTitle" class="form-label-custom">Project Title</label>
+                                <input type="text" class="form-control form-control-lg" id="projectTitle"
+                                       placeholder="e.g., AI-Powered Learning Platform">
+                            </div>
+                            <div class="col-12">
+                                <label for="projectDescription" class="form-label-custom">Project Description</label>
+                                <textarea class="form-control" id="projectDescription" rows="4"
+                                          placeholder="Describe your project idea in detail..."></textarea>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label-custom">Project Type</label>
+                                <div class="row g-3">
+                                    <div class="col-md-4">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="projectType" id="fullStack" checked>
+                                            <label class="form-check-label fw-bold" for="fullStack">
+                                                <i class="bi bi-layers"></i> Full Stack
+                                            </label>
+                                            <small class="d-block text-muted">Frontend + Backend + Database</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="projectType" id="frontendOnly">
+                                            <label class="form-check-label fw-bold" for="frontendOnly">
+                                                <i class="bi bi-display"></i> Frontend Only
+                                            </label>
+                                            <small class="d-block text-muted">UI/UX, no backend</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="projectType" id="backendOnly">
+                                            <label class="form-check-label fw-bold" for="backendOnly">
+                                                <i class="bi bi-server"></i> Backend Only
+                                            </label>
+                                            <small class="d-block text-muted">API, Database, Logic</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline & Difficulty -->
+                <div class="custom-card mt-3">
+                    <div class="custom-card-header">
+                        <h4 class="mb-0">
+                            <i class="bi bi-calendar-event me-2"></i>Timeline & Difficulty
+                        </h4>
+                    </div>
+                    <div class="custom-card-body">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="timelineSelect" class="form-label-custom">Completion Timeline</label>
+                                <select class="form-select" id="timelineSelect">
+                                    <option value="weekend">Weekend Project (2-3 days)</option>
+                                    <option value="1week" selected>1 Week Challenge</option>
+                                    <option value="2weeks">2 Weeks Sprint</option>
+                                    <option value="1month">1 Month Project</option>
+                                    <option value="3months">3 Months (Learning Focus)</option>
+                                    <option value="open">Open-ended (No deadline)</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="difficultySelect" class="form-label-custom">Difficulty Level</label>
+                                <select class="form-select" id="difficultySelect">
+                                    <option value="beginner">👶 Beginner (First project)</option>
+                                    <option value="intermediate" selected>🚀 Intermediate (Some experience)</option>
+                                    <option value="advanced">🔥 Advanced (Complex features)</option>
+                                    <option value="expert">🧠 Expert (Production-ready)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tech Stack Selection -->
+                <div class="custom-card mt-3">
+                    <div class="custom-card-header">
+                        <h4 class="mb-0">
+                            <i class="bi bi-tools me-2"></i>Tech Stack Selection
+                        </h4>
+                    </div>
+                    <div class="custom-card-body">
+                        <p class="text-muted mb-3">Select the technologies you want to use for your project:</p>
+                        
+                        <!-- Tech Stack Categories -->
+                        <div class="mb-4">
+                            <h5 class="fw-bold mb-3">Frontend Technologies</h5>
+                            <div id="frontendStack" class="row g-2 mb-3">
+                                <!-- Will be populated by JavaScript -->
+                            </div>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="newFrontendTech" 
+                                       placeholder="Add custom frontend tech (e.g., Vue.js, Svelte)">
+                                <button class="btn btn-outline-primary" onclick="addTech('frontend')">Add</button>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <h5 class="fw-bold mb-3">Backend Technologies</h5>
+                            <div id="backendStack" class="row g-2 mb-3">
+                                <!-- Will be populated by JavaScript -->
+                            </div>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="newBackendTech" 
+                                       placeholder="Add custom backend tech (e.g., Django, Spring Boot)">
+                                <button class="btn btn-outline-primary" onclick="addTech('backend')">Add</button>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <h5 class="fw-bold mb-3">Database & Storage</h5>
+                            <div id="databaseStack" class="row g-2 mb-3">
+                                <!-- Will be populated by JavaScript -->
+                            </div>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="newDatabaseTech" 
+                                       placeholder="Add custom database (e.g., Redis, Elasticsearch)">
+                                <button class="btn btn-outline-primary" onclick="addTech('database')">Add</button>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <h5 class="fw-bold mb-3">Additional Tools</h5>
+                            <div id="toolsStack" class="row g-2 mb-3">
+                                <!-- Will be populated by JavaScript -->
+                            </div>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="newToolTech" 
+                                       placeholder="Add custom tool (e.g., Docker, GraphQL)">
+                                <button class="btn btn-outline-primary" onclick="addTech('tools')">Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Features Selection -->
+                <div class="custom-card mt-3">
+                    <div class="custom-card-header">
+                        <h4 class="mb-0">
+                            <i class="bi bi-star me-2"></i>Project Features
+                        </h4>
+                    </div>
+                    <div class="custom-card-body">
+                        <p class="text-muted mb-3">Select all features you want to include in your project:</p>
+                        
+                        <div class="row g-3" id="featuresContainer">
+                            <!-- Will be populated by JavaScript -->
+                        </div>
+                        
+                        <div class="mt-4">
+                            <label for="customFeature" class="form-label-custom">Custom Features</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="customFeature" 
+                                       placeholder="Add your custom feature (e.g., Voice commands, AR integration)">
+                                <button class="btn btn-outline-warning" onclick="addCustomFeature()">Add Feature</button>
+                            </div>
+                            <div id="customFeaturesList" class="mt-2">
+                                <!-- Custom features will appear here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Deployment Configuration -->
+                <div class="custom-card mt-3">
+                    <div class="custom-card-header">
+                        <h4 class="mb-0">
+                            <i class="bi bi-cloud-upload me-2"></i>Deployment & Repository
+                        </h4>
+                    </div>
+                    <div class="custom-card-body">
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <label for="deploymentPlatform" class="form-label-custom">Deployment Platform</label>
+                                <select class="form-select" id="deploymentPlatform">
+                                    <option value="github" selected>GitHub Pages</option>
+                                    <option value="vercel">Vercel</option>
+                                    <option value="netlify">Netlify</option>
+                                    <option value="heroku">Heroku</option>
+                                    <option value="aws">AWS</option>
+                                    <option value="digitalocean">DigitalOcean</option>
+                                    <option value="custom">Custom</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="repoName" class="form-label-custom">Repository Name</label>
+                                <input type="text" class="form-control" id="repoName"
+                                       placeholder="my-awesome-project">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="githubUsername" class="form-label-custom">GitHub Username</label>
+                                <input type="text" class="form-control" id="githubUsername"
+                                       placeholder="your-github-username">
+                            </div>
+                        </div>
+                        
+                        <div class="row g-3 mt-3">
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="includeReadme" checked>
+                                    <label class="form-check-label fw-bold" for="includeReadme">
+                                        Include README.md
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="includeLicense">
+                                    <label class="form-check-label fw-bold" for="includeLicense">
+                                        Include License File
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="includeGitignore" checked>
+                                    <label class="form-check-label fw-bold" for="includeGitignore">
+                                        Include .gitignore
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Generation -->
+            <div class="col-12 col-lg-4">
+                <!-- Generate Button -->
+                <div class="text-center mt-3">
+                    <button class="btn btn-primary btn-lg w-100 py-3 px-4 btn-primary-custom" onclick="generateProject()" style="min-height: 48px; font-size: 1.1rem;">
+                        <i class="bi bi-magic me-2"></i> Generate Project Plan
+                    </button>
+                    <p class="text-muted small mt-2 px-2">Creates a detailed project plan with timeline and structure</p>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="custom-card mt-3">
+                    <div class="custom-card-body">
+                        <div class="row g-2">
+                            <div class="col-6">
+                                <button class="btn btn-outline-success w-100 py-2" onclick="saveConfiguration()" style="min-height: 44px;">
+                                    <i class="bi bi-save me-1"></i><span class="d-none d-sm-inline"> Save</span>
+                                </button>
+                            </div>
+                            <div class="col-6">
+                                <button class="btn btn-outline-info w-100 py-2" onclick="loadSampleConfig()" style="min-height: 44px;">
+                                    <i class="bi bi-file-earmark-code me-1"></i><span class="d-none d-sm-inline"> Sample</span>
+                                </button>
+                            </div>
+                            <div class="col-6">
+                                <button class="btn btn-outline-primary w-100 py-2" onclick="exportConfig()" style="min-height: 44px;">
+                                    <i class="bi bi-download me-1"></i><span class="d-none d-sm-inline"> Export</span>
+                                </button>
+                            </div>
+                            <div class="col-6">
+                                <button class="btn btn-outline-danger w-100 py-2" onclick="resetConfiguration()" style="min-height: 44px;">
+                                    <i class="bi bi-arrow-clockwise me-1"></i><span class="d-none d-sm-inline"> Reset</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Generated Project Modal -->
+    <div class="modal fade" id="projectModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-fullscreen-sm-down">
+            <div class="modal-content modal-custom">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="bi bi-check-circle me-2"></i>Your Project Plan is Ready!
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-2 p-md-3">
+                    <div id="generatedOutput" class="generated-output">
+                        <!-- Generated project plan will appear here -->
+                    </div>
+                </div>
+                <div class="modal-footer flex-column flex-sm-row">
+                    <button class="btn btn-primary w-100 w-sm-auto mb-2 mb-sm-0 me-sm-2" onclick="copyProjectToClipboard()">
+                        <i class="bi bi-clipboard me-1"></i> Copy to Clipboard
+                    </button>
+                    <button class="btn btn-success w-100 w-sm-auto" onclick="downloadProjectFiles()">
+                        <i class="bi bi-download me-1"></i> Download as File
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div class="position-fixed top-50 start-50 translate-middle d-none" id="loadingSpinner">
+        <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

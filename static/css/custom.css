@@ -1,0 +1,693 @@
+/**
+ * Vibe Coding Generator - Dark Mode Professional Theme
+ * Dark backgrounds with bright accents, perfect for developer tools
+ */
+
+/* Root Variables - Dark Mode Professional Color Palette */
+:root {
+    --primary-accent: #00d4ff;
+    --secondary-accent: #0099cc;
+    --success-accent: #10b981;
+    --warning-accent: #f59e0b;
+    --danger-accent: #ef4444;
+    --info-accent: #06b6d4;
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --bg-tertiary: #404040;
+    --bg-card: #2d2d2d;
+    --bg-card-hover: #333333;
+    --text-primary: #ffffff;
+    --text-secondary: #f0f0f0;
+    --text-muted: #aaaaaa;
+    --border-color: #444444;
+    --border-accent: #00d4ff;
+    --shadow-dark: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+    --shadow-light: 0 0 15px rgba(0, 212, 255, 0.2);
+    --gradient-primary: linear-gradient(45deg, #00d4ff, #0099cc);
+    --gradient-success: linear-gradient(45deg, #10b981, #059669);
+    --gradient-warning: linear-gradient(45deg, #f59e0b, #d97706);
+}
+
+/* Base Styles */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+/* Custom Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+/* Header Styles */
+.app-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--text-primary);
+}
+
+.app-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    background: var(--gradient-primary);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.app-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Card Enhancements - Dark Mode Professional */
+.custom-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: var(--shadow-dark);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.custom-card:hover {
+    border-color: var(--border-accent);
+    box-shadow: var(--shadow-light);
+    transform: translateY(-2px);
+}
+
+.custom-card-header {
+    padding: 1.5rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border-bottom: 1px solid var(--border-color);
+    margin: 0;
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.custom-card-body {
+    padding: 1.5rem;
+    background: var(--bg-card);
+}
+
+/* Button Enhancements - Dark Mode Professional */
+.btn-custom {
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.btn-primary-custom {
+    background: var(--gradient-primary);
+    color: white;
+    border-color: var(--primary-accent);
+}
+
+.btn-primary-custom:hover {
+    background: var(--secondary-accent);
+    border-color: var(--secondary-accent);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 212, 255, 0.3);
+}
+
+.btn-success-custom {
+    background: var(--gradient-success);
+    color: white;
+    border-color: var(--success-accent);
+}
+
+.btn-success-custom:hover {
+    background: #059669;
+    border-color: #059669;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.btn-warning-custom {
+    background: var(--gradient-warning);
+    color: white;
+    border-color: var(--warning-accent);
+}
+
+.btn-warning-custom:hover {
+    background: #d97706;
+    border-color: #d97706;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+
+.btn-info-custom {
+    background: var(--gradient-primary);
+    color: white;
+    border-color: var(--info-accent);
+}
+
+.btn-outline-primary {
+    background: transparent;
+    color: var(--primary-accent);
+    border-color: var(--primary-accent);
+}
+
+.btn-outline-primary:hover {
+    background: var(--primary-accent);
+    color: white;
+    transform: translateY(-1px);
+}
+
+.btn-outline-success {
+    background: transparent;
+    color: var(--success-accent);
+    border-color: var(--success-accent);
+}
+
+.btn-outline-success:hover {
+    background: var(--success-accent);
+    color: white;
+    transform: translateY(-1px);
+}
+
+.btn-outline-info {
+    background: transparent;
+    color: var(--info-accent);
+    border-color: var(--info-accent);
+}
+
+.btn-outline-info:hover {
+    background: var(--info-accent);
+    color: white;
+    transform: translateY(-1px);
+}
+
+.btn-outline-warning {
+    background: transparent;
+    color: var(--warning-accent);
+    border-color: var(--warning-accent);
+}
+
+.btn-outline-warning:hover {
+    background: var(--warning-accent);
+    color: white;
+    transform: translateY(-1px);
+}
+
+.btn-outline-danger {
+    background: transparent;
+    color: var(--danger-accent);
+    border-color: var(--danger-accent);
+}
+
+.btn-outline-danger:hover {
+    background: var(--danger-accent);
+    color: white;
+    transform: translateY(-1px);
+}
+
+/* Form Enhancements - Dark Mode Professional */
+.form-group-custom {
+    margin-bottom: 1.5rem;
+}
+
+.form-label-custom {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.85rem;
+}
+
+.form-control-custom, .form-control {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: var(--bg-card);
+    color: var(--text-primary);
+    font-family: inherit;
+}
+
+.form-control-custom:focus, .form-control:focus {
+    outline: none;
+    border-color: var(--primary-accent);
+    box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+    background: var(--bg-card-hover);
+}
+
+.form-control-custom::placeholder, .form-control::placeholder {
+    color: var(--text-muted);
+}
+
+.form-select-custom, .form-select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%2300d4ff' viewBox='0 0 20 20'%3e%3cpath stroke='%2300d4ff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.75rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    padding-right: 2.5rem;
+}
+
+/* Checkbox and Radio Enhancements */
+.form-check-custom {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.form-check-input-custom {
+    width: 1.2rem;
+    height: 1.2rem;
+    margin-right: 0.75rem;
+    accent-color: var(--primary-accent);
+    border: 2px solid var(--border-color);
+    background: var(--bg-card);
+}
+
+.form-check-label-custom {
+    font-weight: 500;
+    cursor: pointer;
+    user-select: none;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    font-size: 0.85rem;
+}
+
+/* Preview Panel - Dark Mode Professional */
+.preview-panel {
+    background: var(--bg-card);
+    color: var(--text-primary);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-dark);
+    border: 1px solid var(--border-color);
+}
+
+.preview-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--primary-accent);
+}
+
+.preview-description {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.preview-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.preview-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* Tech Stack Badges - Dark Mode Professional */
+.tech-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.tech-badge {
+    background: var(--gradient-primary);
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.feature-badge {
+    background: var(--gradient-success);
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+/* Loading Spinner - Dark Mode Professional */
+.loading-spinner {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+}
+
+.spinner-custom {
+    width: 3rem;
+    height: 3rem;
+    border: 4px solid rgba(0, 212, 255, 0.1);
+    border-top: 4px solid var(--primary-accent);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Alert Enhancements - Dark Mode Professional */
+.alert-custom {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    z-index: 9999;
+    min-width: 300px;
+    border-radius: 12px;
+    border: 1px solid;
+    box-shadow: var(--shadow-dark);
+    animation: slideIn 0.3s ease;
+    background: var(--bg-card);
+    color: var(--text-primary);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    font-size: 0.9rem;
+}
+
+.alert-success {
+    border-color: var(--success-accent);
+}
+
+.alert-danger {
+    border-color: var(--danger-accent);
+}
+
+.alert-info {
+    border-color: var(--primary-accent);
+}
+
+.alert-warning {
+    border-color: var(--warning-accent);
+}
+
+/* Modal Enhancements - Dark Mode Professional */
+.modal-custom .modal-content {
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-dark);
+    background: var(--bg-card);
+    overflow: hidden;
+}
+
+.modal-custom .modal-header {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-color);
+    border-radius: 12px 12px 0 0;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.modal-custom .modal-footer {
+    border-top: 1px solid var(--border-color);
+    background: var(--bg-card);
+}
+
+/* Generated Output - Dark Mode Professional */
+.generated-output {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    padding: 1.5rem;
+    border-radius: 8px;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    max-height: 400px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    border: 1px solid var(--border-color);
+}
+
+/* Quick Actions - Dark Mode Professional */
+.quick-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.quick-action-btn {
+    padding: 0.75rem;
+    border: 2px solid var(--border-color);
+    background: var(--bg-card);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+}
+
+.quick-action-btn:hover {
+    border-color: var(--primary-accent);
+    background: var(--bg-card-hover);
+    transform: translateY(-1px);
+}
+
+/* Tech and Feature Card Styling - Dark Mode Professional */
+.tech-card, .feature-card {
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+    background: var(--bg-card);
+    border-radius: 8px;
+}
+
+.tech-card:hover, .feature-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--primary-accent);
+    box-shadow: var(--shadow-light);
+    background: var(--bg-card-hover);
+}
+
+.tech-icon, .feature-icon {
+    color: var(--primary-accent);
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.tech-card:hover .tech-icon, .feature-card:hover .feature-icon {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.card-title {
+    font-weight: 600;
+    font-size: 0.85rem;
+    line-height: 1.2;
+    color: var(--text-primary);
+}
+
+/* Selected card styling */
+.card input[type="checkbox"]:checked + label .card-title {
+    color: var(--primary-accent);
+}
+
+.card input[type="checkbox"]:checked ~ .tech-icon,
+.card input[type="checkbox"]:checked ~ .feature-icon {
+    color: var(--success-accent);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .app-title {
+        font-size: 2.2rem;
+    }
+
+    .custom-card-header,
+    .custom-card-body {
+        padding: 1rem;
+    }
+
+    .btn-custom {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.8rem;
+    }
+
+    .alert-custom {
+        right: 1rem;
+        left: 1rem;
+        min-width: auto;
+    }
+
+    /* Mobile form improvements */
+    .form-control, .form-select {
+        font-size: 16px;
+        min-height: 44px;
+    }
+
+    .btn {
+        min-height: 44px;
+        font-size: 1rem;
+    }
+
+    /* Mobile modal improvements */
+    .modal-dialog {
+        margin: 0.5rem;
+    }
+
+    .modal-content {
+        border-radius: 8px;
+    }
+
+    /* Stack columns vertically on mobile */
+    .row > [class*="col-"] {
+        margin-bottom: 1rem;
+    }
+
+    /* Improve card spacing and size for mobile */
+    .card {
+        margin-bottom: 1rem;
+    }
+
+    /* Make tech/feature cards more compact on mobile */
+    @media (max-width: 576px) {
+        .card .card-body {
+            padding: 0.5rem 0.25rem;
+        }
+
+        .card-title {
+            font-size: 0.75rem;
+            margin-bottom: 0.25rem;
+            line-height: 1.2;
+        }
+
+        .form-check-input {
+            width: 1rem;
+            height: 1rem;
+            margin-right: 0.25rem;
+        }
+
+        .form-check-label {
+            font-size: 0.8rem;
+        }
+    }
+}
+
+/* Animation Classes */
+.fade-in {
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.slide-up {
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Custom Scrollbar - Dark Mode */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-card);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-accent);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-accent);
+}
+
+/* Additional utility classes for dark mode */
+.text-primary-custom { color: var(--primary-accent) !important; }
+.text-success-custom { color: var(--success-accent) !important; }
+.text-warning-custom { color: var(--warning-accent) !important; }
+.text-info-custom { color: var(--info-accent) !important; }
+.text-danger-custom { color: var(--danger-accent) !important; }
+
+/* Override Bootstrap's text-muted for dark theme */
+.text-muted {
+    color: var(--text-muted) !important;
+}
+
+.bg-primary-custom { background-color: var(--bg-card) !important; }
+.bg-secondary-custom { background-color: var(--bg-tertiary) !important; }
+
+/* Focus styles for accessibility */
+.btn:focus,
+.form-control:focus,
+.form-select:focus,
+.form-check-input:focus {
+    outline: 2px solid var(--primary-accent);
+    outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    :root {
+        --border-color: #666666;
+        --text-muted: #aaaaaa;
+    }
+}
