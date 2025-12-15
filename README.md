@@ -1,5 +1,7 @@
 # Vibe Coding Generator - Custom Project Builder
 
+[![Demo](https://img.shields.io/badge/Demo-Live-brightgreen)](https://mea03kkw.github.io/vibe_code_assistant/demo.html)
+
 A Flask-based web application for generating customized development project plans with flexible tech stack selection, timeline planning, and feature configuration.
 
 ## 🎯 Features
@@ -130,6 +132,8 @@ DEFAULT_FEATURES = [
 
 ### GitHub Pages
 This application is designed to be deployed on GitHub Pages with Flask integration.
+
+**Live Demo**: [https://mea03kkw.github.io/vibe_code_assistant/demo.html](https://mea03kkw.github.io/vibe_code_assistant/demo.html)
 
 ### Local Development
 ```bash
