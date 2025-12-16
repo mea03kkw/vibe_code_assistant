@@ -337,7 +337,8 @@ async function generateProject() {
             github_username: document.getElementById('githubUsername').value.trim() || 'demo-user',
             include_readme: document.getElementById('includeReadme').checked,
             include_license: document.getElementById('includeLicense').checked,
-            include_gitignore: document.getElementById('includeGitignore').checked
+            include_gitignore: document.getElementById('includeGitignore').checked,
+            include_venv: document.getElementById('includeVenv').checked
         };
 
         // Generate demo project plan
@@ -581,6 +582,7 @@ function exportConfig() {
         include_readme: document.getElementById('includeReadme').checked,
         include_license: document.getElementById('includeLicense').checked,
         include_gitignore: document.getElementById('includeGitignore').checked,
+        include_venv: document.getElementById('includeVenv').checked,
         timestamp: new Date().toISOString()
     };
 
