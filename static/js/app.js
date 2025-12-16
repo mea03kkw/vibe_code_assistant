@@ -354,7 +354,8 @@ async function generateProject() {
             github_username: document.getElementById('githubUsername').value.trim() || 'yourusername',
             include_readme: document.getElementById('includeReadme').checked,
             include_license: document.getElementById('includeLicense').checked,
-            include_gitignore: document.getElementById('includeGitignore').checked
+            include_gitignore: document.getElementById('includeGitignore').checked,
+            include_venv: document.getElementById('includeVenv').checked
         };
         
         // Send request to generate project
@@ -663,7 +664,8 @@ function resetConfiguration() {
         document.getElementById('includeReadme').checked = true;
         document.getElementById('includeLicense').checked = false;
         document.getElementById('includeGitignore').checked = true;
-        
+        document.getElementById('includeVenv').checked = true;
+
         // Reset tech stacks and features
         for (const category in selectedTechStack) {
             selectedTechStack[category].clear();
